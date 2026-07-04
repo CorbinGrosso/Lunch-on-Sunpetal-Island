@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://b5uos72yey5el"]
 
+[ext_resource type="PackedScene" uid="uid://cyevxss2r8byw" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://25p3mddeg73" path="res://assets/sprites/temp stand.png" id="2_yqjtg"]
+
 [node name="Game" type="Node2D" unique_id=2022753761]
+
+[node name="Player" parent="." unique_id=1747869481 instance=ExtResource("1_uwrxv")]
+position = Vector2(-452.99997, 149.00005)
+scale = Vector2(10, 10)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1868056695]
+
+[node name="TempStand" type="Sprite2D" parent="." unique_id=401280984]
+z_index = -1
+position = Vector2(-29, -15)
+texture = ExtResource("2_yqjtg")
