@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b5uos72yey5el"]
+
+[ext_resource type="Texture2D" uid="uid://bf5ev41miipue" path="res://assets/enviros/beach/beach_w_obj_blobs.png" id="1_e8gmd"]
+[ext_resource type="PackedScene" uid="uid://hfsyqf8bo52a" path="res://scenes/loading_zone.tscn" id="3_x2l1g"]
+
+[node name="BentoStand" type="Node2D" unique_id=2022753761]
+position = Vector2(320, 181)
+
+[node name="BeachWObjBlobs" type="Sprite2D" parent="." unique_id=1044686248]
+z_index = -10
+position = Vector2(0, -1)
+texture = ExtResource("1_e8gmd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1868056695]
+position = Vector2(-320, -181)
+anchor_mode = 0
+
+[node name="HomeLoadingZone" parent="." unique_id=162988637 instance=ExtResource("3_x2l1g")]
+position = Vector2(-308, 131)
+next_scene = "home"
+
+[node name="DockLoadingZone" parent="." unique_id=662490789 instance=ExtResource("3_x2l1g")]
+position = Vector2(308, 131)
+next_scene = "dock"
