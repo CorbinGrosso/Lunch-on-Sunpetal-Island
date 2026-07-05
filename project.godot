@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lunch on Sunpetal Island"
-run/main_scene="uid://b5uos72yey5el"
+run/main_scene="uid://gdxqk2btmi4o"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

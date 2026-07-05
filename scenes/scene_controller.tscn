@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://gdxqk2btmi4o"]
+
+[ext_resource type="Script" uid="uid://6ynco1e784vp" path="res://scripts/scene_controller.gd" id="1_e8btk"]
+[ext_resource type="PackedScene" uid="uid://b5uos72yey5el" path="res://scenes/bento_stand.tscn" id="2_fwhu6"]
+
+[sub_resource type="Animation" id="Animation_rcfrh"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_bk13i"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.083333336, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_1y38p"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.08, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.48)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ka503"]
+_data = {
+&"RESET": SubResource("Animation_rcfrh"),
+&"fade_in": SubResource("Animation_bk13i"),
+&"fade_out": SubResource("Animation_1y38p")
+}
+
+[node name="SceneController" type="Node" unique_id=278549971]
+script = ExtResource("1_e8btk")
+
+[node name="BentoStand" parent="." unique_id=2022753761 instance=ExtResource("2_fwhu6")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=61805524]
+libraries/ = SubResource("AnimationLibrary_ka503")
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer" unique_id=1182408579]
+modulate = Color(1, 1, 1, 0)
+z_index = 100
+anchors_preset = -1
+offset_left = -326.0
+offset_top = -185.0
+offset_right = 327.0
+offset_bottom = 187.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

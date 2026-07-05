@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://25p3mddeg73"
-path="res://.godot/imported/temp stand.png-139f7db403c1703d0870b63960df2fb0.ctex"
+uid="uid://djrf2bjjtwuip"
+path="res://.godot/imported/home_blobs.png-b38bbb8718a02c21d6e0b62b9269618c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/temp stand.png"
-dest_files=["res://.godot/imported/temp stand.png-139f7db403c1703d0870b63960df2fb0.ctex"]
+source_file="res://assets/enviros/home/home_blobs.png"
+dest_files=["res://.godot/imported/home_blobs.png-b38bbb8718a02c21d6e0b62b9269618c.ctex"]
 
 [params]
 

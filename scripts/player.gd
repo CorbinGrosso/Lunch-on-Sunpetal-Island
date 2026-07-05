@@ -1,15 +1,20 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 150.0
 var screen_size
+@export var flip_h = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	$AnimatedSprite2D.flip_h = flip_h
 	$AnimatedSprite2D.play()
 	
-func _process(_delta):
+func _physics_process(_delta):
 
+	# if move_right and !move_left, direction is 1
+	# if !move_right and move_left, direction is -1
+	# if both move_right and move_left, direction is 0 and player does not move
 	var direction = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	velocity.x = direction * SPEED
 
