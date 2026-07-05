@@ -1,0 +1,157 @@
+{
+	"categories": [
+		{
+			"uuid": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"title": "Task",
+			"color": "569eff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "93f70921-cdeb-45b3-9217-a018fb2b8007",
+			"title": "Todo",
+			"tasks": [
+				"c9e0728c-0d22-43d4-bc36-d38174734a6e",
+				"a125ef5c-f8f0-4e6d-ac16-b5ae5558a651",
+				"1ca62abb-83a8-422b-bf07-85a8b1d59660",
+				"f0151c92-63cc-45be-8953-10ef92c733d3",
+				"23468a80-cee3-4663-b001-addccd762c1b",
+				"a962a68b-a87a-486f-bff8-af679f8664a3",
+				"e2a432af-235b-42c4-b73f-914432057866",
+				"8afb15f2-669d-460b-be3f-e9041cdd17a3",
+				"464681d9-3a68-421d-a851-47cd047e66fb"
+			]
+		},
+		{
+			"uuid": "8d108b85-93fc-47f9-9639-312342f94f11",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "c1157f10-095d-4f1a-8584-75cb408a9434",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "c9e0728c-0d22-43d4-bc36-d38174734a6e",
+			"title": "ART - Separate Objects from Scene",
+			"description": "",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": []
+		},
+		{
+			"uuid": "a125ef5c-f8f0-4e6d-ac16-b5ae5558a651",
+			"title": "ART - Implement Sprite Frames",
+			"description": "",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": [
+				{
+					"details": "Player Idle",
+					"done": false
+				},
+				{
+					"details": "Player Move",
+					"done": false
+				},
+				{
+					"details": "Villager Idle",
+					"done": false
+				},
+				{
+					"details": "Villager Move",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "1ca62abb-83a8-422b-bf07-85a8b1d59660",
+			"title": "STORY - Write Intro Dialogue",
+			"description": "Sets up the game without a long cutscene",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": []
+		},
+		{
+			"uuid": "f0151c92-63cc-45be-8953-10ef92c733d3",
+			"title": "STORY - Write Ending Dialogue",
+			"description": "",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": []
+		},
+		{
+			"uuid": "23468a80-cee3-4663-b001-addccd762c1b",
+			"title": "MUSIC - Add SFX",
+			"description": "",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": []
+		},
+		{
+			"uuid": "a962a68b-a87a-486f-bff8-af679f8664a3",
+			"title": "MUSIC - Write/Add 3 tracks",
+			"description": "Use shop track as main theme. Night track should be calmer version.",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": [
+				{
+					"details": "Morning Track",
+					"done": false
+				},
+				{
+					"details": "Shop Track",
+					"done": false
+				},
+				{
+					"details": "Night Track",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "e2a432af-235b-42c4-b73f-914432057866",
+			"title": "ART - Basic UI",
+			"description": "",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": [
+				{
+					"details": "Panel",
+					"done": false
+				},
+				{
+					"details": "Button",
+					"done": false
+				},
+				{
+					"details": "Text",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "8afb15f2-669d-460b-be3f-e9041cdd17a3",
+			"title": "ART - Misc Items",
+			"description": "",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": []
+		},
+		{
+			"uuid": "464681d9-3a68-421d-a851-47cd047e66fb",
+			"title": "CODE (Alex) - Dialogic 2",
+			"description": "",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"93f70921-cdeb-45b3-9217-a018fb2b8007"
+			],
+			[
+				"8d108b85-93fc-47f9-9639-312342f94f11"
+			],
+			[
+				"c1157f10-095d-4f1a-8584-75cb408a9434"
+			]
+		]
+	}
+}
