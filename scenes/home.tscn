@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://djrf2bjjtwuip" path="res://assets/enviros/home/home_blobs.png" id="1_krot7"]
 [ext_resource type="PackedScene" uid="uid://hfsyqf8bo52a" path="res://scenes/loading_zone.tscn" id="3_w18ys"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_apumd"]
+normal = Vector2(-1, 0)
+distance = 320.0
+
 [node name="Home" type="Node2D" unique_id=310274419]
 position = Vector2(320, 184)
 
@@ -17,5 +21,8 @@ anchor_mode = 0
 zoom = Vector2(1.8, 1.8)
 
 [node name="BentoStandLoadingZone" parent="." unique_id=162988637 instance=ExtResource("3_w18ys")]
-position = Vector2(343, 120)
+position = Vector2(308, 115)
 next_scene = "bento_stand"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414597269]
+shape = SubResource("WorldBoundaryShape2D_apumd")

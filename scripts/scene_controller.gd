@@ -18,6 +18,10 @@ func _physics_process(_delta):
 	
 func _update_scene(destination):
 	next_scene_name = destination
+	if (curr_scene_name == "home" and destination == "bento_stand") or (curr_scene_name == "bento_stand" and destination == "dock"):
+		$Player.velocity.x = $Player._get_speed()
+	else:
+		$Player.velocity.x = -$Player._get_speed()
 	anim.play("fade_in")
 
 func _on_animation_player_animation_finished(anim_name):

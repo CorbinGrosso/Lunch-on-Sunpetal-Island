@@ -17,9 +17,9 @@ anchor_mode = 0
 zoom = Vector2(1.8, 1.8)
 
 [node name="HomeLoadingZone" parent="." unique_id=162988637 instance=ExtResource("3_x2l1g")]
-position = Vector2(-336, 112)
+position = Vector2(-308, 106)
 next_scene = "home"
 
 [node name="DockLoadingZone" parent="." unique_id=662490789 instance=ExtResource("3_x2l1g")]
-position = Vector2(336, 116)
+position = Vector2(308, 105)
 next_scene = "dock"

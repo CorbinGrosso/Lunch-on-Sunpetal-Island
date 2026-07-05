@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c6qavmmfpq2tb" path="res://scripts/loading_zone.gd" id="1_uhhlp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apumd"]
+size = Vector2(8, 32)
 
 [node name="LoadingZone" type="Area2D" unique_id=162988637]
 script = ExtResource("1_uhhlp")

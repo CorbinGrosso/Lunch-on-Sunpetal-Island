@@ -15,7 +15,5 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if body._get_movement_control_enabled():
-		var dir = body.velocity.x
 		body._set_movement_control_enabled(false)
-		body.velocity.x = dir
 		get_parent().get_parent()._update_scene(next_scene)

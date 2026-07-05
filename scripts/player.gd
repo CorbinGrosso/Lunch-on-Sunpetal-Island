@@ -33,3 +33,6 @@ func _set_movement_control_enabled(val):
 	
 func _get_movement_control_enabled():
 	return movement_control_enabled
+	
+func _get_speed():
+	return SPEED
