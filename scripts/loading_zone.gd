@@ -9,9 +9,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
 func _on_body_entered(body):
-	get_parent().get_parent()._update_scene(next_scene)
+	if body._get_movement_control_enabled():
+		var dir = body.velocity.x
+		body._set_movement_control_enabled(false)
+		body.velocity.x = dir
+		get_parent().get_parent()._update_scene(next_scene)

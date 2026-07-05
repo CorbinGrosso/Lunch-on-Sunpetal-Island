@@ -1,18 +1,15 @@
 [gd_scene format=3 uid="uid://1b42h486c8by"]
 
 [ext_resource type="Texture2D" uid="uid://cbt1sbq6cn7w6" path="res://assets/enviros/dock/dock_blobs.png" id="1_pi7v4"]
-[ext_resource type="PackedScene" uid="uid://cyevxss2r8byw" path="res://scenes/player.tscn" id="2_uvgon"]
 [ext_resource type="PackedScene" uid="uid://hfsyqf8bo52a" path="res://scenes/loading_zone.tscn" id="3_0n4n6"]
 
 [node name="Dock" type="Node2D" unique_id=11944277]
+position = Vector2(320, 179)
 
 [node name="DockBlobs" type="Sprite2D" parent="." unique_id=1383741665]
 z_index = -10
 position = Vector2(0, 1)
 texture = ExtResource("1_pi7v4")
-
-[node name="Player" parent="." unique_id=1747869481 instance=ExtResource("2_uvgon")]
-position = Vector2(-294, 117)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=871860399]
 position = Vector2(-320, -179)

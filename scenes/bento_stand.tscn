@@ -1,18 +1,15 @@
 [gd_scene format=3 uid="uid://b5uos72yey5el"]
 
 [ext_resource type="Texture2D" uid="uid://bf5ev41miipue" path="res://assets/enviros/beach/beach_w_obj_blobs.png" id="1_e8gmd"]
-[ext_resource type="PackedScene" uid="uid://cyevxss2r8byw" path="res://scenes/player.tscn" id="2_x2l1g"]
 [ext_resource type="PackedScene" uid="uid://hfsyqf8bo52a" path="res://scenes/loading_zone.tscn" id="3_x2l1g"]
 
 [node name="BentoStand" type="Node2D" unique_id=2022753761]
+position = Vector2(320, 181)
 
 [node name="BeachWObjBlobs" type="Sprite2D" parent="." unique_id=1044686248]
 z_index = -10
 position = Vector2(0, -1)
 texture = ExtResource("1_e8gmd")
-
-[node name="Player" parent="." unique_id=1747869481 instance=ExtResource("2_x2l1g")]
-position = Vector2(40, 115)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1868056695]
 position = Vector2(-320, -181)
