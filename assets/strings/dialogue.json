@@ -1,0 +1,35 @@
+{
+	"placeholder_char": {
+		"idle": [
+			"Hey there! Lovely weather to run in the sand, am I right?",
+			"The ocean is warm today! I might go for a swim later."
+		],
+		"haggling": {
+			"greeting": [
+				"What do you have in stock today?",
+				"Got anything yummy?",
+				"Smells good over here."
+			],
+			"offer_accepted": {
+				"hungry": [
+					"I'm gonna eat this right away!",
+					"I can't wait to go eat this!"
+				],
+				"not_hungry": [
+					"I'm glad I have something yummy to eat later.",
+					"This'll taste great after working up a sweat on the beach."
+				]
+			},
+			"offer_declined": {
+				"hungry": [
+					"Oh.. I'll try to find something else to eat then.",
+					"Maybe I'm not that hungry"
+				],
+				"not_hungry": [
+					"It's fine, I can go without for now.",
+					"Eh, I'm not that hungry"
+				]
+			}
+		}
+	}
+}

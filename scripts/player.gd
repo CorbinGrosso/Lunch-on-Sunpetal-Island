@@ -5,6 +5,8 @@ const SPEED = 150.0
 var screen_size
 @export var flip_h = false
 var movement_control_enabled = true
+var bento_stock = 0
+var money = 0
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -36,3 +38,20 @@ func _get_movement_control_enabled():
 	
 func _get_speed():
 	return SPEED
+
+func buy_bento(bento, price):
+	bento_stock += bento
+	money -= price
+
+func sell_bento(bento, price):
+	bento_stock -= bento
+	money += price
+	
+func expire_bento():
+	bento_stock = 0
+
+func get_bento_stock():
+	return bento_stock
+	
+func get_money():
+	return money

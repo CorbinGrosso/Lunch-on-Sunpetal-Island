@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://cbt1sbq6cn7w6" path="res://assets/enviros/dock/dock_blobs.png" id="1_pi7v4"]
 [ext_resource type="PackedScene" uid="uid://hfsyqf8bo52a" path="res://scenes/loading_zone.tscn" id="3_0n4n6"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_apumd"]
+normal = Vector2(-1, 0)
+distance = -84.0
+
 [node name="Dock" type="Node2D" unique_id=11944277]
 position = Vector2(320, 179)
 
@@ -20,3 +24,9 @@ zoom = Vector2(1.8, 1.8)
 [node name="BentoStandLoadingZone" parent="." unique_id=162988637 instance=ExtResource("3_0n4n6")]
 position = Vector2(-308, 116)
 next_scene = "bento_stand"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1167088448]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=218222216]
+position = Vector2(-3, 89)
+shape = SubResource("WorldBoundaryShape2D_apumd")

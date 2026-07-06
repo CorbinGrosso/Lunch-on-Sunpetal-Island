@@ -67,7 +67,6 @@ position = Vector2(42, 296)
 libraries/ = SubResource("AnimationLibrary_ka503")
 
 [node name="ColorRect" type="ColorRect" parent="AnimationPlayer" unique_id=1182408579]
-visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 100
 anchors_preset = -1
