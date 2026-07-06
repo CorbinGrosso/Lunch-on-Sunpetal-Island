@@ -7,9 +7,12 @@ var screen_size
 var movement_control_enabled = true
 var bento_stock = 0
 var money = 0
+var left_start_pos = -20
+var right_start_pos = 20
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	right_start_pos += screen_size[1]
 	$AnimatedSprite2D.flip_h = flip_h
 	$AnimatedSprite2D.play()
 	
@@ -55,3 +58,9 @@ func get_bento_stock():
 	
 func get_money():
 	return money
+	
+func get_left_start_pos():
+	return left_start_pos
+	
+func get_right_start_pos():
+	return right_start_pos

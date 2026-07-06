@@ -11,7 +11,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	dialog.position.y -= 120
+	dialog.add_to_queue("Hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
+	dialog.add_to_queue("Heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
@@ -42,6 +44,6 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_animation_player_animation_started(anim_name):
 	if anim_name == "fade_out":
 		if (prev_scene_name == "home" and curr_scene_name == "bento_stand") or (prev_scene_name == "bento_stand" and curr_scene_name == "dock"):
-			$Player.position.x = -20
+			$Player.position.x = $Player.get_left_start_pos()
 		else:
-			$Player.position.x = 660
+			$Player.position.x = $Player.get_right_start_pos()
