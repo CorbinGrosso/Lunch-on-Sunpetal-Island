@@ -7,6 +7,7 @@ extends Node
 @onready var prev_scene_name
 
 @onready var anim = $AnimationPlayer
+@onready var dialog = $UI/Dialog
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

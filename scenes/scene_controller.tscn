@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://6ynco1e784vp" path="res://scripts/scene_controller.gd" id="1_e8btk"]
 [ext_resource type="PackedScene" uid="uid://b5uos72yey5el" path="res://scenes/bento_stand.tscn" id="2_fwhu6"]
 [ext_resource type="PackedScene" uid="uid://cyevxss2r8byw" path="res://scenes/player.tscn" id="3_fwhu6"]
+[ext_resource type="Script" uid="uid://cdl4rjyqq2hnx" path="res://scripts/dialog.gd" id="4_rcfrh"]
 
 [sub_resource type="Animation" id="Animation_rcfrh"]
 length = 0.001
@@ -55,6 +56,60 @@ _data = {
 &"fade_out": SubResource("Animation_1y38p")
 }
 
+[sub_resource type="Theme" id="Theme_c3ohr"]
+default_font_size = 32
+
+[sub_resource type="Animation" id="Animation_fwhu6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ka503"]
+resource_name = "slide_in"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(-120, -0.25, 0, 0.25, 0, 0, -0.083333336, -20, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_7kli2"]
+resource_name = "slide_out"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.083333336, -20, -120, -0.083333336, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1mf4q"]
+_data = {
+&"RESET": SubResource("Animation_fwhu6"),
+&"slide_in": SubResource("Animation_ka503"),
+&"slide_out": SubResource("Animation_7kli2")
+}
+
 [node name="SceneController" type="Node" unique_id=278549971]
 script = ExtResource("1_e8btk")
 
@@ -76,5 +131,69 @@ offset_right = 641.0
 offset_bottom = 361.0
 color = Color(0, 0, 0, 1)
 
+[node name="UI" type="Node" parent="." unique_id=1137849404]
+
+[node name="Dialog" type="Control" parent="UI" unique_id=1879384657]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -512.0
+offset_bottom = -528.0005
+grow_horizontal = 2
+theme = SubResource("Theme_c3ohr")
+script = ExtResource("4_rcfrh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Dialog" unique_id=1493809682]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_1mf4q")
+
+[node name="Box" type="PanelContainer" parent="UI/Dialog" unique_id=565686761]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Dialog" unique_id=935824964]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -9.5
+offset_right = -3.0
+offset_bottom = 9.500732
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Speaker" type="Label" parent="UI/Dialog/VBoxContainer" unique_id=958404537]
+layout_mode = 2
+
+[node name="Dialogue" type="RichTextLabel" parent="UI/Dialog/VBoxContainer" unique_id=519231090]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+fit_content = true
+
+[node name="Continue" type="Button" parent="UI/Dialog" unique_id=401408828]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Continue"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+[connection signal="animation_started" from="UI/Dialog/AnimationPlayer" to="UI/Dialog" method="_on_animation_player_animation_started"]
+[connection signal="pressed" from="UI/Dialog/Continue" to="UI/Dialog" method="_on_continue_pressed"]
