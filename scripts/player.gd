@@ -64,3 +64,6 @@ func get_left_start_pos():
 	
 func get_right_start_pos():
 	return right_start_pos
+	
+func stop_moving():
+	velocity.x = 0

@@ -19,7 +19,8 @@
 				"a962a68b-a87a-486f-bff8-af679f8664a3",
 				"e2a432af-235b-42c4-b73f-914432057866",
 				"8afb15f2-669d-460b-be3f-e9041cdd17a3",
-				"464681d9-3a68-421d-a851-47cd047e66fb"
+				"464681d9-3a68-421d-a851-47cd047e66fb",
+				"980772c1-70f4-4b87-ad13-845342ebc5c6"
 			]
 		},
 		{
@@ -139,6 +140,30 @@
 			"description": "",
 			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
 			"steps": []
+		},
+		{
+			"uuid": "980772c1-70f4-4b87-ad13-845342ebc5c6",
+			"title": "CODE (Corbin) - Haggling Sytem",
+			"description": "",
+			"category": "2b7f3f15-d8c3-4269-a954-f2a2595507d2",
+			"steps": [
+				{
+					"details": "Interaction with bento stand",
+					"done": true
+				},
+				{
+					"details": "Greeting Dialogue from Villager",
+					"done": true
+				},
+				{
+					"details": "Offer Dialogue with Options to Accept or Decline",
+					"done": false
+				},
+				{
+					"details": "Get Expected Dialogue Based on Offer Acceptance",
+					"done": false
+				}
+			]
 		}
 	],
 	"layout": {

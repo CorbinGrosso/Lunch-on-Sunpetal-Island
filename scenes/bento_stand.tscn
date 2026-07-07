@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://b5uos72yey5el"]
 
 [ext_resource type="Texture2D" uid="uid://bf5ev41miipue" path="res://assets/enviros/beach/beach_w_obj_blobs.png" id="1_e8gmd"]
+[ext_resource type="Script" uid="uid://b24m04grvrbqu" path="res://scripts/bento_stand.gd" id="1_x2l1g"]
 [ext_resource type="PackedScene" uid="uid://hfsyqf8bo52a" path="res://scenes/loading_zone.tscn" id="3_x2l1g"]
+[ext_resource type="PackedScene" uid="uid://003qqjmwbhxg" path="res://scenes/interaction_area.tscn" id="4_1d87t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apumd"]
+size = Vector2(112, 64)
 
 [node name="BentoStand" type="Node2D" unique_id=2022753761]
-position = Vector2(320, 181)
+script = ExtResource("1_x2l1g")
 
 [node name="BeachWObjBlobs" type="Sprite2D" parent="." unique_id=1044686248]
 z_index = -10
@@ -23,3 +28,10 @@ next_scene = "home"
 [node name="DockLoadingZone" parent="." unique_id=662490789 instance=ExtResource("3_x2l1g")]
 position = Vector2(308, 105)
 next_scene = "dock"
+
+[node name="BentoStandInteractionArea" parent="." unique_id=766948796 instance=ExtResource("4_1d87t")]
+action_name = "Open Shop"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BentoStandInteractionArea" unique_id=1237563358]
+position = Vector2(-72, 107)
+shape = SubResource("RectangleShape2D_apumd")

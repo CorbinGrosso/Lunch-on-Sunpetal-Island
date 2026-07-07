@@ -8,7 +8,6 @@ normal = Vector2(1, 0)
 distance = -320.0
 
 [node name="Home" type="Node2D" unique_id=310274419]
-position = Vector2(320, 184)
 
 [node name="HomeBlobs" type="Sprite2D" parent="." unique_id=1559555611]
 z_index = -10

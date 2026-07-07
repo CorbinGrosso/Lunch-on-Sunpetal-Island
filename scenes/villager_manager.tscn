@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dwnsdvn65e4up"]
+
+[ext_resource type="Script" uid="uid://clgtgnaxj2t5s" path="res://scripts/villager_manager.gd" id="1_t2hju"]
+
+[node name="VillagerManager" type="Control" unique_id=2075350483]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t2hju")

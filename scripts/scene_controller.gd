@@ -12,8 +12,6 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dialog.position.y -= 120
-	dialog.add_to_queue("Hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
-	dialog.add_to_queue("Heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
