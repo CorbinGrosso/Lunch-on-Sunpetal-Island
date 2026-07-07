@@ -1,0 +1,123 @@
+Bugs:
+	7/6
+		- Scene loading either unimplemented due to testing or does not work anymore
+		- Haggling accept/decline message appears sometimes, repeats other times, must click OK several times to get back to haggle screen, there seems to be some state-related issues that are getting tangled. My personal recommendation is a state-machine, but I'll defer to you here.
+		- Overall, we just need to iron things out, but much of this is known as per your message
+
+Design:
+	7/6
+		- If we can press E to open the shop, we should be able to press E to advance the text, switching control between keys and mouse is a little confusing
+		- Similarly, we should be able to press left to accept the offer and right to decline (or similar), but still allow the player the ability to click the buttons. This will give the added benefit of dead-simple gamepad support
+		- When a dialogue box appears, there should be some brief pauses to allow the players eyes a chance to catch up. Here is the ideal flow:
+			- Dialogue box enters, name section is already pre-filled
+				- Please add juice to this by having the box overshoot its destination slightly before going to its intended position
+				- Please do the same in reverse for when the box leaves: have it move down slightly before sliding back up
+				- You can do this by tweening from current position to target position, I really recommend getting familiar with tweens if you are not already, they're incredibly powerful
+				- Please create an export var of tween transition types for both in and out animations so we can see which works best
+				- This will change the dialogue box from using an animation player to using tweens, which is a big design revision but I think it will pay off in the end
+				- Please also create export variables to let us choose the following:
+					- How far the box overshoots
+					- How long the brief pauses are
+					- How long to pause between each letter
+			- Very brief pause, maybe 0.15-0.2s
+			- Text begins to fill the dialogue box
+			- Do not show the continue button until the dialogue is finished
+				- Allow the player to press E (or similar) to force the dialogue to complete if they want to mash through
+		- Dialogue Box flow
+			- The dialogue box should not go away between the greeting text and haggling
+		- Debug UI
+			- Please implement a debug UI that tells us the following:
+				- Day phase (Morning, Day, Night)
+				- If selling, tell us how many customers are remaining
+				- Current inventory
+				- Current money
+				- Money sent/license cost remaining
+		- In general, if anything moves onscreen as it relates to UI, however it does it, we'll want to make it snappy, responsive, and flashy. This is easiest with Tweens; it removes the need for individual animations since we can just make a static function or put a helper function on a global.
+
+Code:
+	7/6
+		- The villager manager is handling a lot, it handles the haggling, the generation of offers, the acceptance/rejections, even whether or not the shop is open. I fear that it will become kind of unwieldy if left unchecked and there is a lot of dependency on this one script if things go this way which I think we could (or should) avoid.
+		- My personal recommendation here is to split it into:
+			VillagerManager:
+				- Handles the spawning of villagers
+				- Who can spawn
+				- Who is alive or dead so that other villagers can reference them
+			HaggleManager:
+				- Generates offers based on info given and info possibly taken from a world-state global
+			ShopManager:
+				- Set the store open/closed status here
+				- Let this handle acceptance/rejection, that kind of thing
+			That kind of thing. But in general my mantra with scripts has been to just have each script responsible for one thing. Easier to fix. Easier for me to review. Which I know is a lot to ask during a jam haha, I promise I'm not asking you to write production-level code, just my personal architectural choices.
+		- Villager data should probably be a custom resource, it'll be easy to make changes and slot things in on a per-villager basis. It will hold their name, their sprite frames, their wealth level, their dialogue options, that kind of thing.
+		- That JSON is going to get wild considering I have about 100 or more lines to write, all with differing conditions. As the writer who will need to slot things into where they need to go, I would ask that you please change to a custom resource based dialogue system where we can define who can say what and under which conditions they can say it and then slot it into villagers in their individual custom resources (see above) that hold their info. Otherwise, if we come up with a new condition it is gonna be a mammoth task trying to figure out how to implement this.
+		- In general, I am a huge proponent of using custom resources. Godot is basically built around them and the node system it uses. I didn't ask to see your portfolio before you came aboard so I'm not sure what your confidence level is around them, but if you haven't made any big projects in Godot I think it's a great way to build scalable architecture. I use them for basically everything data-related. I'd be more than happy to walk you through it!
+
+Goals:
+	7/6
+		- 7/7 END OF DAY GOALS:
+			- Fix the haggling system so that it displays correctly in the various stages of selling
+			- Reimplement scene changes
+			- Key/Gamepad controls
+			- Add/Remove boxes and money from inventory on selling
+			- Day-State tracking
+				- Spawn at dock in morning
+				- Interact with stall to begin daytime section
+				- Once last villager leaves stand, enter night section
+				- Interact with door to reset to day -> respawn at dock
+		- 7/8 END OF DAY GOALS:
+			- Villagers spawning appropriately
+			- Villagers walking to stand to initiate haggling
+			- Villagers health tracking and death
+			- Replenishing Boxes
+		- 7/9 END OF DAY GOALS:
+			- Fully functional sales system
+				- Replenishing boxes spawns boxes
+				- Selling boxes removes the visual
+				- Villagers offer appropriate amounts
+				- Box cost changes daily
+			- SFX/Music Implementation
+		- 7/10 END OF DAY GOALS:
+			- Win/Lose Conditions
+				- Sending money to the guild via the mailbox
+				- Everyone dies
+				- DESIGN NOTE: While my original idea was to have people pick how long their time on the island would be via a menu choice like 7 days, 10 days, etc. I think we could get away with simply tracking how long it took you to earn your license and then grade you based on that. 
+				- Narrative screens
+		- 7/11 END OF DAY GOALS:
+			- Main Menu
+			- Pause Menu
+			- Save/Load systems
+				- Autosave at each phase change
+		- 7/12 END OF DAY GOALS:
+			- Balance Pass
+				- Do you get at least enough money to replenish your boxes (give or take) after a normal day of sales?
+				- Is the rising cost easy to keep up with while still feeling challenging?
+				- Does the rising cost present itself gradually enough...
+					...that players who sent all their excess money to the guild don't softlock themselves?
+					...that players who don't send anything to the guild aren't rolling in cash?
+				- Do villagers offer appropriate amounts for boxes?
+				- Does the wealth multiplier, especially for poor villagers, feel fair?
+				- Does the increased multiplier for wealthy villagers have them feeling OP?
+				- Does the customer number leave you feeling excited on getting maybe one last customer?
+				- Does the merchant guild license cost feel just fair enough to be achievable?
+				- Is there a reasonable sense of risk between sending money to the guild versus an unknown price increase tomorrow?
+				- Is there a reasonable sense of risk between selling to a poorer villager at a loss versus holding out for a rich villager, only to have them never appear and your food go to rot?
+		- 7/13 END OF DAY GOALS:
+			- Polish/Juice
+				- Do buttons feel good to click?
+				- Is selling fun? Does the risk factor feel good?
+				- Is it fun to buy bento boxes?
+				- Is the day cycle engaging and entertaining?
+				- Is the game too long or too short? 
+				- Are the days too long or too short?
+				- Is it overly sad, or not sad enough?
+				- Is the player on the island long enough to care about the villagers?
+				- Do the villagers feel like more than just cutouts?
+				- Does money feel meaningful?
+				- Do choices feel weighty?
+		- 7/14 END OF DAY GOALS:
+			- Remaining polish and balancing
+			- Add juice wherever possible
+			- Test web export
+		- 7/15 FINAL DAY GOALS:
+			- Final polish wherever needed
+			- Final upload due at 10:30p self-deadline 
